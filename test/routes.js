@@ -47,7 +47,7 @@ describe('Todo routes', () => {
   })
 
   describe('`/users/:name/tasks` URI', () => {
-    xit('GET lists all tasks for a specific user', () => {
+    it('GET lists all tasks for a specific user', () => {
       todos.add('dave', { content: 'task 1 for dave' })
       todos.add('joe', { content: 'task 1 for joe', complete: true })
       todos.add('joe', { content: 'task 2 for joe' })
@@ -64,7 +64,7 @@ describe('Todo routes', () => {
         })
     })
 
-    xit('POST creates a new task for that user & responds with the created task', () => {
+    it('POST creates a new task for that user & responds with the created task', () => {
       return supertest
         .post('/users/sarah/tasks')
         .send({ content: 'a new task for sarah' }) // the HTTP request body
@@ -83,7 +83,7 @@ describe('Todo routes', () => {
         })
     })
 
-    xit('POST respects pre-existing completion status', () => {
+    it('POST respects pre-existing completion status', () => {
       return supertest
         .post('/users/sarah/tasks')
         .send({ content: 'a new task for sarah', complete: true }) // the HTTP request body

@@ -2,12 +2,16 @@
 
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 module.exports = app; // this line is only used to make testing easier.
 app.use("/users", require("./routes/"))
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 // remember to plug in your router and any other middleware you may need here.
 
 const router = express.Router();
+
 module.exports = app;
 
 

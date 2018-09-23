@@ -3,6 +3,8 @@
 let tasks = {}; // a place to store tasks by person
 
 module.exports = {
+  //const tasks = {};
+
   reset: function () {
     tasks = {}; // (this function is completed for you.)
   },
@@ -19,47 +21,49 @@ module.exports = {
 
   add: function (name, task) {
     // saves a task for a given person
-    let taskArray = [];
-   taskArray.push(task)
-    if (!tasks[name]){
-         tasks[name] = [task];
+  //   let taskArray = [];
+  //  taskArray.push(task)
+  //   if (!tasks[name]){
+  //        tasks[name] = [task];
+  //   } else {
+  //       tasks[name].push(task);
+  //   }
+
+
+  //   tasks[name].forEach(task => {
+  //     if (task.complete === undefined){
+  //     task.complete = false;
+  //     }
+  //   })
+
+  //   return taskArray;
+    if (tasks[name]){
+      tasks[name].push(task)
     } else {
-        tasks[name].push(task);
+      tasks[name] = []
+      tasks[name].push(task);
     }
 
-
-    tasks[name].forEach(task => {
-      if (task.complete === undefined){
-      task.complete = false;
-      }
+     tasks[name].forEach(task => {
+       if (task.complete === undefined) {
+         task.complete = false;
+       }
     })
 
-    return taskArray;
   },
 
   list: function(name) {
-    let nameArray = [];
-    let tasksArray = Object.keys(tasks);
-    console.log('tasksArray is' + tasksArray);
-   for (let i = 0; i < tasksArray.length; i++){
-      if (tasksArray[i] === name){
 
-        nameArray = nameArray.concat(tasks[tasksArray[i]]);
-        console.log('name array is' + nameArray);
-      }
-    }
-    //console.log(nameArray);
-    //return tasksArray;
-    return nameArray;
+    return tasks[name];
 
   },
 
   complete: function(name, taskNumber){
           if (tasks[name][taskNumber].complete !== undefined){
           tasks[name][taskNumber].complete = true;
-          } else {
+          }// else {
            // tasks[name][taskNumber].complete = tasks[name][taskNumber].complete;
-          }
+       //   }
 
     },
 
