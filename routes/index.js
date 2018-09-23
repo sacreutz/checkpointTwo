@@ -3,7 +3,10 @@
 const express = require('express');
 const router = express.Router();
 const database = require('../models/todos')
+const app = require('../app');
 const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //const routes = require("./routes/")
 
@@ -32,10 +35,10 @@ router.get('/:name/tasks', (req, res, next) => {
 router.post('/:name/tasks', (req, res, next)  => {
 
     const name = req.params.name;
-     const add = database.add(name, req.query)
+     const add = database.add(name, req.body)
     const list = database.list(name)
-  console.log('query' + req.query)
-    console.log('body is' + req)
+  console.log('body' + req.body)
+
 
 
   const newTask = list[list.length - 1]
