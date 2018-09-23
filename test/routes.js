@@ -109,7 +109,7 @@ describe('Todo routes', () => {
         todos.add('billy', { content: 'enable requests for specific todos' })
       })
 
-      xit('GET can get just the completed tasks', () => {
+      it('GET can get just the completed tasks', () => {
         return supertest
           .get('/users/billy/tasks?status=complete')
           .expect(200)
@@ -120,7 +120,7 @@ describe('Todo routes', () => {
           })
       })
 
-      xit('GET can get just the active (incomplete) tasks', () => {
+      it('GET can get just the active (incomplete) tasks', () => {
         return supertest
           .get('/users/billy/tasks?status=active')
           .expect(200)
@@ -133,7 +133,7 @@ describe('Todo routes', () => {
     })
 
     describe('`/:index` URI', () => {
-      xit('PUT marks a specific task as complete', () => {
+      it('PUT marks a specific task as complete', () => {
         todos.add('nimit', { content: 't0' })
         todos.add('nimit', { content: 't1' })
         todos.add('nimit', { content: 't2' })
@@ -171,7 +171,7 @@ describe('Todo routes', () => {
           .expect(404)
       })
 
-      xit('responds with a 400 if you attempt to add a todo without content', () => {
+      it('responds with a 400 if you attempt to add a todo without content', () => {
         return supertest
           .post('/users/bob/tasks')
           .send({ content: '' })
