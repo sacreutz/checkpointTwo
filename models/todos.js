@@ -46,6 +46,7 @@ module.exports = {
     }
     // 🍓 this might be better checked as the tasks come in - so first thing you could do would be to the check for complete, and assign it to false if it undefined.  That way you could avoid a loop here.
     //have this as the first operation of the add function:
+
     //task.complete = task.complete || false
 
      tasks[name].forEach(task => {
