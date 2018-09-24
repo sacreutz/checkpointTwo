@@ -99,14 +99,14 @@ router.post('/:name/tasks', (req, res, next)  => {
       //If you are sending a status use res.sendStatus for more semantic code
       res.send(400)
     } else {
-     const add = database.add(name, req.body)
-    const list = database.list(name)
+      const add = database.add(name, req.body)
+      const list = database.list(name)
+      const newTask = list[list.length - 1]
 
 // 🍓 This is a lot of white space
 // to make your thoughts and code more clear it is incredibly important to format your code.  make sure it is indented properly and there is only spaces to divide information.  This makes this whole route very hard to reason about
 
 
-  const newTask = list[list.length - 1]
 
    res.send(201, newTask)
   }
