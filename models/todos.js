@@ -12,6 +12,7 @@ module.exports = {
   listPeople: function () {
     // returns an array of all people for whom tasks exist
     let array = [];
+    // 🍓 🍓 You could have just returned Object.keys!!
     let tasksArray = Object.keys(tasks);
     for (let i = 0; i < tasksArray.length; i++){
       array.push(tasksArray[i]);
@@ -43,6 +44,9 @@ module.exports = {
       tasks[name] = []
       tasks[name].push(task);
     }
+    // 🍓 this might be better checked as the tasks come in - so first thing you could do would be to the check for complete, and assign it to false if it undefined.  That way you could avoid a loop here.
+    //have this as the first operation of the add function:
+    //task.complete = task.complete || false
 
      tasks[name].forEach(task => {
        if (task.complete === undefined) {
@@ -60,6 +64,7 @@ module.exports = {
 
   complete: function(name, taskNumber){
           if (tasks[name][taskNumber].complete !== undefined){
+            // 🍓 this should be the only line you need for this function to run
           tasks[name][taskNumber].complete = true;
           }// else {
            // tasks[name][taskNumber].complete = tasks[name][taskNumber].complete;
